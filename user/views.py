@@ -38,3 +38,9 @@ class LoginView(View): #로그인 페이지의 요청을 처리(로그인 화면
         #실패 시 다시 로그인 폼을 렌더링
         return render(request,'user/login.html', {'form': form})     
 
+class Logoutview(View):
+    def get(self, request):
+        logout(request) #현재 섹션 삭제 
+        return redirect('login') #로그아웃 후 로그인 페이지로 리디렉션 
+
+        
