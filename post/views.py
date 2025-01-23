@@ -19,6 +19,10 @@ class PostCreateView(CreateView):  # CreateView를 사용하여 새 게시글 �
     fields = ['title', 'content']
     template_name = 'post/post_form.html'
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user  # 현재 로그인된 사용자를 작성자로 설정
+        return super().form_valid(form)
+
 # 게시글 수정 (Update)
 class PostUpdateView(UpdateView):  # UpdateView를 사용하여 게시글 수정
     model = Post
