@@ -2,6 +2,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # 게시글 목록 보기 (Read)
 class PostListView(ListView):  # ListView를 사용하여 게시글 목록을 표시
