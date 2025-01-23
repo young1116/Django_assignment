@@ -1,5 +1,5 @@
 from django.urls import path #url 경로 설정 모듈
-from .views import SignUpView, LoginView, LogutView #뷰 가져오기 
+from .views import SignUpView, LoginView, LogoutView #뷰 가져오기 
 
 urlpatterns = [
     path('signup/', SignUpView.as_view(), name='signup'), #회원가입 url
