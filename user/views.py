@@ -28,7 +28,7 @@ class LoginView(View): #로그인 페이지의 요청을 처리(로그인 화면
     
     def post(self, request):
         #로그인 폼 데이터를 받아 AuthentificationForm에 전달
-        form = Authentication(data=request.POST)
+        form = AuthenticationForm(data=request.POST)
 
         if form.is_valid(): #유효성 검사
             user = form.get_user() #사용자 객체 가져오기
@@ -38,7 +38,7 @@ class LoginView(View): #로그인 페이지의 요청을 처리(로그인 화면
         #실패 시 다시 로그인 폼을 렌더링
         return render(request,'user/login.html', {'form': form})     
 
-class LogutView(View):
+class LogoutView(View):
     def get(self, request):
         logout(request) #현재 섹션 삭제 
         return redirect('login') #로그아웃 후 로그인 페이지로 리디렉션 
